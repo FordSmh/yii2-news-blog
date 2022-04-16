@@ -4,6 +4,8 @@ namespace frontend\controllers;
 
 use common\models\Category;
 use common\models\CategorySearch;
+use common\models\Post;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -53,10 +55,22 @@ class CategoryController extends Controller
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($slug)
     {
+        $model = $this->findModelBySlug($slug);
+
+        $query = Post::find()
+            ->where('category_id = :id')
+            ->params(['id' => $model->id])
+            ->orderBy('created_at DESC');
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query
+        ]);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'dataProvider' => $dataProvider,
+            'model' => $model
         ]);
     }
 
@@ -130,5 +144,14 @@ class CategoryController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }
+
+    protected function findModelBySlug($slug)
+    {
+        if (($model = Category::findOne(['slug' => $slug])) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException();
+        }
     }
 }

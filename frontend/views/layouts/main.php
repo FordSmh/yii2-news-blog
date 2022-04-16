@@ -62,18 +62,15 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'World', 'url' => ['/category/index']],
-        ['label' => 'U.S.', 'url' => ['/category/index']],
-        ['label' => 'Technology', 'url' => ['/category/index']],
-        ['label' => 'Design', 'url' => ['/category/index']],
-        ['label' => 'Culture', 'url' => ['/category/index']],
-        ['label' => 'Business', 'url' => ['/category/index']],
-        ['label' => 'Politics', 'url' => ['/category/index']],
-        ['label' => 'Opinion', 'url' => ['/category/index']],
-        ['label' => 'Science', 'url' => ['/category/index']],
-        ['label' => 'Health', 'url' => ['/category/index']],
-        ['label' => 'Style', 'url' => ['/category/index']],
-        ['label' => 'Travel', 'url' => ['/category/index']],
+        ['label' => 'Science', 'url' => ['/category/science']],
+        ['label' => 'Entertainment', 'url' => ['/category/entertainment']],
+        ['label' => 'Business', 'url' => ['/category/business']],
+        ['label' => 'Politics', 'url' => ['/category/politics']],
+        ['label' => 'Culture', 'url' => ['/category/culture']],
+        ['label' => 'Opinion', 'url' => ['/category/opinion']],
+        ['label' => 'Travel', 'url' => ['/category/travel']],
+        ['label' => 'Technology', 'url' => ['/category/technology']],
+        ['label' => 'Health', 'url' => ['/category/health']],
     ];
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav w-100 justify-content-between'],

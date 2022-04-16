@@ -59,7 +59,7 @@ class Post extends \yii\db\ActiveRecord
             [['bodytext'], 'string'],
             [['created_by', 'updated_by', 'created_at', 'updated_at', 'status', 'category_id'], 'default', 'value' => null],
             [['created_by', 'updated_by', 'status', 'category_id'], 'integer'],
-            [['previewImage'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, webp'],
+            [['previewImage'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, webp, jpeg'],
             [['title', 'preview_image'], 'string', 'max' => 255],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['category_id' => 'id']],
             [['created_by'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['created_by' => 'id']],
