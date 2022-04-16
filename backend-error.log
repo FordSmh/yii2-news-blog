@@ -1,0 +1,65 @@
+2022/04/13 15:01:09 [error] 11#11: *1545 FastCGI sent in stderr: "PHP message: PHP Parse error:  syntax error, unexpected token ";", expecting "]" in /var/www/blog/public/common/config/main.php on line 23" while reading response header from upstream, client: 172.22.0.1, server: backend.blog.test, request: "GET /post/index?PostSearch%5Btitle%5D=&PostSearch%5Bcreated_by%5D=&created_at=2022-04-20%20h%3A04%3Ass%2BZZ&PostSearch%5Bstatus%5D=&PostSearch%5Bcategory_id%5D= HTTP/1.1", upstream: "fastcgi://172.22.0.5:9000", host: "backend.blog.test", referrer: "http://backend.blog.test/category/index"
+2022/04/13 16:34:58 [error] 11#11: *1934 FastCGI sent in stderr: "PHP message: An Error occurred while handling another error:
+yii\web\HeadersAlreadySentException: Headers already sent in /var/www/blog/public/common/models/PostSearch.php on line 54. in /var/www/blog/public/vendor/yiisoft/yii2/web/Response.php:368
+Stack trace:
+#0 /var/www/blog/public/vendor/yiisoft/yii2/web/Response.php(341): yii\web\Response->sendHeaders()
+#1 /var/www/blog/public/vendor/yiisoft/yii2/web/ErrorHandler.php(136): yii\web\Response->send()
+#2 /var/www/blog/public/vendor/yiisoft/yii2/base/ErrorHandler.php(135): yii\web\ErrorHandler->renderException(Object(ArgumentCountError))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(ArgumentCountError))
+#4 {main}
+Previous exception:
+ArgumentCountError: Too few arguments to function yii\db\Query::andFilterWhere(), 0 passed in /var/www/blog/public/common/models/PostSearch.php on line 75 and exactly 1 expected in /var/www/blog/public/vendor/yiisoft/yii2/db/QueryTrait.php:190
+Stack trace:
+#0 /var/www/blog/public/common/models/PostSearch.php(75): yii\db\Query->andFilterWhere()
+#1 /var/www/blog/public/backend/controllers/PostController.php(42): common\models\PostSearch->search(Array)
+#2 [internal function]: backend\controllers\PostController->actionIndex()
+#3 /var/www/blog/public/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#4 /var/www/blog/public/vendor/yiisoft/yii2/base/Controller.php(178): yii\base\InlineAction->runWithParams(Array)
+#5 /var/www/blog/public/vendor/yiisoft/yii2/base/Module.php(552): yii\base\Controller->runAction('index', Array)
+#6 /var/www/blog/public/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('post/index', Array)
+#7 /var/www/blog/public/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 /var/www/blog/public/backend/web/index.php(18): yii\base\Application->run()
+#9 {main}
+$_SER" while reading upstream, client: 172.22.0.1, server: backend
+2022/04/13 16:34:58 [error] 11#11: *1934 FastCGI sent in stderr: "VER = [
+    'PHP_EXTRA_CONFIGURE_ARGS' => '--enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data --disable-cgi',
+    'OCI_HOME' => '/opt/oracle/instantclient_12_1',
+    'HOSTNAME' => 'de7e449ef11a',
+    'PHP_INI_DIR' => '/usr/local/etc/php',
+    'LD_LIBRARY_PATH' => '/opt/oracle/instantclient_12_1',
+    'OCI_LIB_DIR' => '/opt/oracle/instantclient_12_1',
+    'HOME' => '/var/www',
+    'LARADOCK_PHALCON_VERSION' => '4.0.5',
+    'PHP_IDE_CONFIG' => 'serverName=laradock',
+    'PHP_LDFLAGS' => '-Wl,-O1 -pie',
+    'PHP_CFLAGS' => '-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64',
+    'DOCKER_TLS_VERIFY' => '1',
+    'PHP_VERSION' => '8.0.10',
+    'PGID' => '1000',
+    'GPG_KEYS' => '1729F83938DA44E27BA0F4D3DBDB397470D12172 BFDDD28642824F8118EF77909B67A5C12229118F',
+    'PHP_CPPFLAGS' => '-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64',
+    'PHP_ASC_URL' => 'https://www.php.net/distributions/php-8.0.10.tar.xz.asc',
+    'PHP_URL' => 'https://www.php.net/distributions/php-8.0.10.tar.xz',
+    'DOCKER_CERT_PATH' => '/certs/client',
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+    'OCI_VERSION' => '12',
+    'IMAGEMAGICK_VERSION' => 'latest',
+    'FAKETIME' => '-0',
+    'DEBIAN_FRONTEND' => 'noninteractive',
+    'PUID' => '1000',
+    'DOCKER_TLS_CERTDIR' => '/certs',
+    'DOCKER_HOST' => 'tcp://docker-in-docker:2376',
+    'PHPIZE_DEPS' => 'autoconf 		dpkg-dev 		file 		g++ 		gcc 		libc-dev 		make 		pkg-config 		re2c',
+    'OCI_INCLUDE_DIR' => '/opt/oracle/instantclient_12_1/sdk/include',
+    'LC_ALL' => 'POSIX',
+    'PWD' => '/var/www',
+    'PHP_SHA256' => '66dc4d1bc86d9c1bc255b51b79d337ed1a7a035cf71230daabbf9a4ca35795eb',
+    'DB_1_ENV_MYSQL_PASSWORD' => '',
+    'DB_1_ENV_MYSQL_USER' => '',
+    'DB_1_ENV_MYSQL_DATABASE' => '',
+    'USER' => 'www-data',
+    'HTTP_COOKIE' => 'advanced-backend=2cqi23o0otq26dutrqhgoj48m9; _identity-backend=041e75452624
+2022/04/14 13:04:06 [error] 12#12: *856 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Declaration of common\models\Post::update() must be compatible with yii\db\ActiveRecord::update($runValidation = true, $attributeNames = null) in /var/www/blog/public/common/models/Post.php on line 144" while reading response header from upstream, client: 172.22.0.1, server: backend.blog.test, request: "GET /post/index HTTP/1.1", upstream: "fastcgi://172.22.0.5:9000", host: "backend.blog.test", referrer: "http://backend.blog.test/post/update?id=14"
+2022/04/14 13:25:11 [error] 12#12: *901 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 4194312 bytes) in /var/www/blog/public/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 178" while reading response header from upstream, client: 172.22.0.1, server: backend.blog.test, request: "POST /post/update?id=13 HTTP/1.1", upstream: "fastcgi://172.22.0.5:9000", host: "backend.blog.test", referrer: "http://backend.blog.test/post/update?id=13"
+2022/04/14 13:25:11 [error] 12#12: *901 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 4194312 bytes) in /var/www/blog/public/vendor/yiisoft/yii2-debug/src/LogTarget.php on line 178" while reading upstream, client: 172.22.0.1, server: backend.blog.test, request: "POST /post/update?id=13 HTTP/1.1", upstream: "fastcgi://172.22.0.5:9000", host: "backend.blog.test", referrer: "http://backend.blog.test/post/update?id=13"
+2022/04/15 11:04:06 [error] 12#12: *1746 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot redeclare common\models\Post::getStatusLabels() in /var/www/blog/public/common/models/Post.php on line 108" while reading response header from upstream, client: 172.22.0.1, server: backend.blog.test, request: "GET /post/index HTTP/1.1", upstream: "fastcgi://172.22.0.5:9000", host: "backend.blog.test", referrer: "http://backend.blog.test/post/update?id=11"
