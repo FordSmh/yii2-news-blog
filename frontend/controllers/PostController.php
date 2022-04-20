@@ -3,9 +3,9 @@
 namespace frontend\controllers;
 
 use common\models\Post;
-use common\models\PostSearch;
 use Yii;
-use yii\helpers\Url;
+use yii\data\ActiveDataProvider;
+use yii\data\Sort;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -41,12 +41,27 @@ class PostController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new PostSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        $query = Post::find()
+            ->published()
+            ->orderBy('created_at DESC');
+
+        $sort = new Sort([
+            'attributes' => [
+                'created_at',
+                'updated_at'
+            ],
+        ]);
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'sort' => $sort
         ]);
     }
 

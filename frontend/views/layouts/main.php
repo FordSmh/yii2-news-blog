@@ -34,6 +34,7 @@ AppAsset::register($this);
             'class' => 'navbar navbar-expand-md navbar-light',
         ],
     ]);
+    $menuItems[] = ['label' => 'All posts', 'url' => ['/post/index']];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
