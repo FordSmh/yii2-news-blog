@@ -657,12 +657,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-datepicker.git",
-                "reference": "f5f8b396cf03d4a383aad5e7b338f8cb065abf66"
+                "reference": "9d28ec5180e65c1966ffd9f18df33967999446a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-datepicker/zipball/f5f8b396cf03d4a383aad5e7b338f8cb065abf66",
-                "reference": "f5f8b396cf03d4a383aad5e7b338f8cb065abf66",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-datepicker/zipball/9d28ec5180e65c1966ffd9f18df33967999446a2",
+                "reference": "9d28ec5180e65c1966ffd9f18df33967999446a2",
                 "shasum": ""
             },
             "require": {
@@ -706,9 +706,9 @@
             ],
             "support": {
                 "issues": "https://github.com/kartik-v/yii2-widget-datepicker/issues",
-                "source": "https://github.com/kartik-v/yii2-widget-datepicker/tree/v1.4.8"
+                "source": "https://github.com/kartik-v/yii2-widget-datepicker/tree/master"
             },
-            "time": "2021-10-28T03:58:09+00:00"
+            "time": "2022-04-18T08:33:34+00:00"
         },
         {
             "name": "kartik-v/yii2-widget-datetimepicker",
@@ -5972,5 +5972,5 @@
         "php": ">=5.6.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }

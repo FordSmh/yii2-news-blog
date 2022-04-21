@@ -12,14 +12,17 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' 
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="category-view">
+<div class="row category-view">
+    <div class="col-12 col-md-8">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+        <h1><?= Html::encode($this->title) ?></h1>
 
-    <?=ListView::widget([
-        'dataProvider' => $dataProvider,
-        'itemView' => '../post/_post_item',
-        'layout' => '{items}'
-    ])?>
+        <?=ListView::widget([
+            'dataProvider' => $dataProvider,
+            'itemView' => '../post/_post_item',
+            'layout' => '{items}'
+        ])?>
 
+    </div>
+    <?php echo $this->render('../layouts/_sidebar')?>
 </div>

@@ -11,35 +11,20 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Posts'), 'url' => ['
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="post-view">
+<div class="row post-view">
+    <div class="col-12 col-md-8">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+        <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+        <p class="text-muted"><?=Yii::$app->formatter->asRelativeTime($model->created_at)?> - <?=$model->createdBy->username?></p>
+        <?php
+        if($model->preview_image) {
+            echo '<img src="'.Yii::$app->params['frontendUrl'].'/storage/previews/'.$model->preview_image.'" class="ratio ratio-16x9 mb-3">';
+        }
+        ?>
+        <p><?=$model->bodytext?></p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'title',
-            'bodytext:ntext',
-            'created_by',
-            'updated_by',
-            'created_at',
-            'updated_at',
-            'preview_image',
-            'status',
-            'category_id',
-        ],
-    ]) ?>
+    </div>
 
+    <?php echo $this->render('../layouts/_sidebar')?>
 </div>
