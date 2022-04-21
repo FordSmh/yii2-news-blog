@@ -26,5 +26,5 @@
 <ul>
     <li>User profile page functionality</li>
     <li>RBAC</li>
-    <li>REST PI</li>
+    <li>REST API</li>
 </ul>

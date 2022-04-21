@@ -42,7 +42,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'category/<slug>' => 'category/view',
-                'post/<id:\d+>' => 'post/view'
+                'post/<id:\d+>' => 'post/view',
+                'archive/<date>' => 'archive/view'
             ],
         ],
 
