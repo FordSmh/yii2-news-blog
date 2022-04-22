@@ -7,6 +7,7 @@ use common\models\PostSearch;
 use Yii;
 use yii\helpers\Url;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -89,8 +90,12 @@ class PostController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if (Yii::$app->user->id == $model->created_by || \Yii::$app->user->can('manageArticles')) {
+            $this->handlePostSave($model);
+        } else {
+            throw new ForbiddenHttpException('You are not allowed to edit this article.');
+        }
 
-        $this->handlePostSave($model);
 
         return $this->render('update', [
             'model' => $model,
@@ -130,8 +135,13 @@ class PostController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
 
+        if (Yii::$app->user->id == $model->created_by || \Yii::$app->user->can('manageArticles')) {
+            $model->delete();
+        } else {
+            throw new ForbiddenHttpException('You are not allowed to delete this article.');
+        }
         return $this->redirect(['index']);
     }
 

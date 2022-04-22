@@ -61,7 +61,9 @@ class PostSearch extends Post
         $query = Post::find()
             ->alias('post')
             ->joinWith('createdBy as user');
-
+        if(!\Yii::$app->user->can('admin')) {
+            $query->andWhere('created_by = :userId')->addParams(['userId' => \Yii::$app->user->id]);
+        }
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

@@ -34,11 +34,15 @@ AppAsset::register($this);
             'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
         ],
     ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Categories', 'url' => ['/category/index']],
-        ['label' => 'Posts', 'url' => ['/post/index']],
-    ];
+
+    $menuItems[] = ['label' => 'Home', 'url' => ['/site/index']];
+
+    if (Yii::$app->user->can('admin')) {
+        $menuItems[] = ['label' => 'Categories', 'url' => ['/category/index']];
+    }
+
+    $menuItems[] = ['label' => 'Posts', 'url' => ['/post/index']];
+
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {

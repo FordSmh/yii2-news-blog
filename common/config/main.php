@@ -16,6 +16,9 @@ return [
                 ],
             ],
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
     ],
     'timeZone' => 'Europe/Moscow',
     'modules' => [

@@ -14,6 +14,9 @@
 <ul>
     <li>login - admin</li>
     <li>password - adminadmin</li>
+    <br>
+    <li>login - author</li>
+    <li>password - authorauthor</li>
 </ul>
 <p>Project was build from scratch for practice</p>
 <h2>Project description and features</h2>
@@ -21,10 +24,11 @@
     <li>Backend with CRUD functions</li>
     <li>GridView with filtering on backend</li>
     <li>Project is using PostgreSQL</li>
+    <li>Basic RBAC functionality</li>
 </ul>
-<h3>Planned features</h3>
+<h3>TODO \ Work in progress</h3>
 <ul>
     <li>User profile page functionality</li>
-    <li>RBAC</li>
+    <li>More complex RBAC</li>
     <li>REST API</li>
 </ul>
