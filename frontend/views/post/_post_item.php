@@ -3,6 +3,7 @@
 
 use yii\helpers\Url;
 
+$lead = explode("\r\n\r\n",$model->bodytext);
 ?>
 <article class="my-3">
     <h2><?=$model->title?></h2>
@@ -12,6 +13,6 @@ use yii\helpers\Url;
         echo '<img src="'.Yii::$app->params['frontendUrl'].'/storage/previews/'.$model->preview_image.'" class="ratio ratio-16x9 mb-3">';
     }
     ?>
-    <p><?=$model->bodytext?></p>
+    <p><?=\yii\helpers\StringHelper::truncateWords($lead[0],75)?></p>
     <p><a href="<?= Url::to(['post/view', 'id' => $model->id])?>">Continue reading ...</a></p>
 </article>

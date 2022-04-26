@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             echo '<img src="'.Yii::$app->params['frontendUrl'].'/storage/previews/'.$model->preview_image.'" class="ratio ratio-16x9 mb-3">';
         }
         ?>
-        <p><?=$model->bodytext?></p>
+        <p><?=Yii::$app->formatter->asNtext($model->bodytext)?></p>
 
     </div>
 

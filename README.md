@@ -28,7 +28,7 @@
 </ul>
 <h3>TODO \ Work in progress</h3>
 <ul>
-    <li>User profile page functionality</li>
+    <li>User profile page and user management page functionality</li>
     <li>More complex RBAC</li>
     <li>REST API</li>
 </ul>

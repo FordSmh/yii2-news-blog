@@ -35,8 +35,6 @@ AppAsset::register($this);
         ],
     ]);
 
-    $menuItems[] = ['label' => 'Home', 'url' => ['/site/index']];
-
     if (Yii::$app->user->can('admin')) {
         $menuItems[] = ['label' => 'Categories', 'url' => ['/category/index']];
     }

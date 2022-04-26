@@ -5,6 +5,7 @@ namespace backend\controllers;
 use common\models\Post;
 use common\models\PostSearch;
 use Yii;
+use yii\filters\AccessControl;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\ForbiddenHttpException;
@@ -31,6 +32,17 @@ class PostController extends Controller
                         'delete' => ['POST'],
                     ],
                 ],
+            ],
+            [
+                'access' => [
+                    'class' => AccessControl::className(),
+                    'rules' => [
+                        [
+                            'allow' => true,
+                            'roles' => ['@']
+                        ]
+                    ]
+                ]
             ]
         );
     }
