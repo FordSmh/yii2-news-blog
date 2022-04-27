@@ -40,6 +40,7 @@ AppAsset::register($this);
     }
 
     $menuItems[] = ['label' => 'Posts', 'url' => ['/post/index']];
+    $menuItems[] = ['label' => 'Back to NewsWeek', 'url' => Yii::$app->urlManagerFrontend->createAbsoluteUrl([''])];
 
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
