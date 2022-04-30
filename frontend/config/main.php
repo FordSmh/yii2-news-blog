@@ -34,6 +34,7 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'category/<slug>' => 'category/view',
+                'post/index' => 'post/index',
                 'post/<slug>' => 'post/view',
                 'archive/<date:\d{4,}-\d{2,}>' => 'archive/view'
             ],
