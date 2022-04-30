@@ -13,7 +13,7 @@ $previewImage = Yii::$app->params['frontendUrl'].'/storage/previews/'.$model->pr
             <h2 class="h4 mb-0 two-lines-title"><?=$model->title?></h2>
             <div class="mb-1 text-muted"><?=Yii::$app->formatter->asDate($model->created_at, 'medium')?></div>
             <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-            <a href="<?= Url::to(['post/view', 'id' => $model->id])?>" class="stretched-link">Continue reading</a>
+            <a href="<?= Url::to(['post/view', 'slug' => $model->slug])?>" class="stretched-link">Continue reading</a>
         </div>
         <?php if ($model->preview_image) {?>
             <div class="col-lg-4 d-none d-lg-flex justify-content-center overflow-hidden p-0 shadow-lg">

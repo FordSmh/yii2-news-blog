@@ -20,6 +20,7 @@ class ArchiveController extends Controller
             ->published()
             ->where("created_at >= DATE(:date) AND created_at < DATE(:date) + INTERVAL '1 month'")
             ->params(['date' => $date])
+            ->published()
             ->orderBy('created_at DESC');
 
         $dataProvider = new ActiveDataProvider([

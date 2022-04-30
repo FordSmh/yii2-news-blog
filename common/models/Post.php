@@ -21,6 +21,7 @@ use yii\web\UploadedFile;
  * @property string|null $preview_image
  * @property int|null $status
  * @property int|null $category_id
+ * @property string|null $slug
  *
  * @property Category $category
  * @property User $createdBy
@@ -77,6 +78,11 @@ class Post extends \yii\db\ActiveRecord
             [
                 'class' => BlameableBehavior::class
             ],
+            [
+                'class' => SluggableBehavior::class,
+                'attribute' => 'title',
+                'ensureUnique' => true
+            ]
         ];
     }
 

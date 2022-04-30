@@ -34,7 +34,8 @@ class Category extends \yii\db\ActiveRecord
         return [
             [
                 'class' => SluggableBehavior::class,
-                'attribute' => 'name'
+                'attribute' => 'name',
+                'ensureUnique' => true
             ]
         ];
     }
