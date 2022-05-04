@@ -8,8 +8,6 @@ use yii\widgets\ListView;
 /* @var $dataProvider \common\models\Post */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="row category-view">

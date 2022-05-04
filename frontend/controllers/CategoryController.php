@@ -62,6 +62,7 @@ class CategoryController extends Controller
         $query = Post::find()
             ->where('category_id = :id')
             ->params(['id' => $model->id])
+            ->published()
             ->orderBy('created_at DESC');
 
         $dataProvider = new ActiveDataProvider([

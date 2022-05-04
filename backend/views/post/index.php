@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ]
             ],
             //'updated_at',
-            'preview_image',
+            //'preview_image',
             [
                 'attribute' => 'featured',
                 'content' => function($model){
